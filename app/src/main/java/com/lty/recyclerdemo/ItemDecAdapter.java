@@ -21,13 +21,13 @@ public class ItemDecAdapter extends RecyclerView.Adapter<ItemDecAdapter.ViewHold
         this.data = data;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tv = itemView.findViewById(android.R.id.text1);
+            tv = (TextView) itemView.findViewById(android.R.id.text1);
         }
     }
 

@@ -36,10 +36,7 @@ public class WrapRecyclerView extends RecyclerView {
             if (!(mAdapter instanceof HeaderViewRecyclerAdapter)) {
                 mAdapter = new HeaderViewRecyclerAdapter(mHeaderviewInfos, mFooterviewInfos, mAdapter);
             }
-
         }
-
-
     }
 
     @Override

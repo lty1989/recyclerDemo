@@ -1,22 +1,23 @@
 package com.lty.recyclerdemo;
 
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by andy on 2017/12/10.
  */
 
-public class HeaderViewRecyclerAdapter extends RecyclerView.Adapter {
+public class HeaderViewRecyclerAdapter extends Adapter {
 
 
     private ArrayList<View> mHeaderviewInfos = null;
     private ArrayList<View> mFooterviewInfos = null;
-    private RecyclerView.Adapter mAdapter;
+    private Adapter mAdapter;
 
     public HeaderViewRecyclerAdapter(ArrayList<View> mHeaderviewInfos, ArrayList<View> mFooterviewInfos, RecyclerView.Adapter mAdapter) {
 
@@ -29,7 +30,7 @@ public class HeaderViewRecyclerAdapter extends RecyclerView.Adapter {
         if (mFooterviewInfos == null) {
             this.mFooterviewInfos = new ArrayList<>();
         } else {
-            this.mFooterviewInfos = mHeaderviewInfos;
+            this.mFooterviewInfos = mFooterviewInfos;
         }
         this.mAdapter = mAdapter;
 
@@ -42,7 +43,7 @@ public class HeaderViewRecyclerAdapter extends RecyclerView.Adapter {
         if (viewType == RecyclerView.INVALID_TYPE) {
             return new HeadersViewHolder(mHeaderviewInfos.get(0));
         } else if (viewType == RecyclerView.INVALID_TYPE - 1) {
-            return new HeadersViewHolder(mHeaderviewInfos.get(0));
+            return new HeadersViewHolder(mFooterviewInfos.get(0));
         }
         return mAdapter.onCreateViewHolder(parent, viewType);
     }
@@ -60,6 +61,7 @@ public class HeaderViewRecyclerAdapter extends RecyclerView.Adapter {
             adapterCount = mAdapter.getItemCount();
             if (adjPosition < adapterCount) {
                 mAdapter.onBindViewHolder(holder, adjPosition);
+                return;
             }
         }
     }
@@ -76,10 +78,9 @@ public class HeaderViewRecyclerAdapter extends RecyclerView.Adapter {
         if (mAdapter != null) {
             adapterCount = mAdapter.getItemCount();
             if (adjPosition < adapterCount) {
-                mAdapter.getItemViewType(position);
+                return mAdapter.getItemViewType(position);
             }
         }
-
         return RecyclerView.INVALID_TYPE - 1;
     }
 
@@ -101,7 +102,7 @@ public class HeaderViewRecyclerAdapter extends RecyclerView.Adapter {
     }
 
 
-    private static class HeadersViewHolder extends RecyclerView.ViewHolder {
+    private static class HeadersViewHolder extends ViewHolder {
 
         public HeadersViewHolder(View itemView) {
             super(itemView);
