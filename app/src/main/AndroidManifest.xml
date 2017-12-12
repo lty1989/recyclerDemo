@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ItemDecActivity" />
+        <activity android:name=".DragViewActivity" />
         <activity android:name=".WrapRecyclerActivity"></activity>
     </application>
 

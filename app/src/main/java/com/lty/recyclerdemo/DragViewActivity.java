@@ -5,13 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DragViewActivity extends AppCompatActivity {
+public class DragViewActivity extends AppCompatActivity implements StartDragListener {
 
     private RecyclerView recycler;
+    private ItemTouchHelper itemTouchHelper = null;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +28,20 @@ public class DragViewActivity extends AppCompatActivity {
         for (int i = 0; i < 58; i++) {
             data.add("item" + i);
         }
-        recycler.setAdapter(new ItemDecAdapter(data));
 
+        DragItemAdapter adapter = new DragItemAdapter(data, this);
+
+        MyItemTouchHelperCallback callback = new MyItemTouchHelperCallback(adapter);
+        itemTouchHelper = new ItemTouchHelper(callback);
+
+        itemTouchHelper.attachToRecyclerView(recycler);
+
+        recycler.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        itemTouchHelper.startDrag(viewHolder);
     }
 }
