@@ -19,6 +19,7 @@
         <activity android:name=".ItemDecActivity" />
         <activity android:name=".DragViewActivity" />
         <activity android:name=".WrapRecyclerActivity"></activity>
+        <activity android:name=".ItemTestActivity"></activity>
     </application>
 
 </manifest>
