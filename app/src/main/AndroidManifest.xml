@@ -20,6 +20,7 @@
         <activity android:name=".DragViewActivity" />
         <activity android:name=".WrapRecyclerActivity"></activity>
         <activity android:name=".ItemTestActivity"></activity>
+        <activity android:name=".TianchiActivity"></activity>
     </application>
 
 </manifest>

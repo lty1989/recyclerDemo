@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TianchiLayout_Layout">
+        <attr name="layout_widthDistance" format="integer" />
+        <attr name="layout_heightDistance" format="integer" />
+        <attr name="layout_marginDistance" format="integer" />
+        <attr name="layout_marginLeftDistance" format="integer" />
+        <attr name="layout_marginTopDistance" format="integer" />
+        <attr name="layout_marginRightDistance" format="integer" />
+        <attr name="layout_marginBottomDistance" format="integer" />
+        <attr name="layout_marginStartDistance" format="integer" />
+        <attr name="layout_marginEndDistance" format="integer" />
+    </declare-styleable>
+</resources>

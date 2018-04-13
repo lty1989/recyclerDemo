@@ -12,7 +12,6 @@ import java.util.List;
 /**
  * Created by andy on 2017/12/8.
  */
-
 public class ItemTestAdapter extends RecyclerView.Adapter<ItemTestAdapter.ViewHolder> {
 
 

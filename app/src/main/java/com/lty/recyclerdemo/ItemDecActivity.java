@@ -18,13 +18,13 @@ public class ItemDecActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item_dec);
 
         recycler = findViewById(R.id.recycler);
-       // recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-       // recycler.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        // recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        // recycler.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
         //recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         //recycler.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL));
 
-        recycler.setLayoutManager(new GridLayoutManager(this,3));
+        recycler.setLayoutManager(new GridLayoutManager(this, 3));
         recycler.addItemDecoration(new DividerGridDecoration(this));
 
         List<String> data = new ArrayList<>();
